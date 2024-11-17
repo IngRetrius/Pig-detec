@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RanchTrack AI{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-gradient-to-br from-pink-50 to-pink-100 min-h-screen">
+    <nav class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center h-16">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-all duration-300">
+                    <svg class="w-12 h-12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cara principal (forma ovalada) -->
+                        <ellipse cx="100" cy="100" rx="80" ry="70" fill="#ffb6c1"/>
+                        
+                        <!-- Orejas -->
+                        <path d="M 30 70 Q 40 40 60 50" fill="#ffb6c1" stroke="#ff69b4" stroke-width="2"/>
+                        <path d="M 170 70 Q 160 40 140 50" fill="#ffb6c1" stroke="#ff69b4" stroke-width="2"/>
+                        
+                        <!-- Ojos -->
+                        <ellipse cx="70" cy="80" rx="8" ry="12" fill="black"/>
+                        <ellipse cx="130" cy="80" rx="8" ry="12" fill="black"/>
+                        
+                        <!-- Nariz -->
+                        <ellipse cx="100" cy="110" rx="25" ry="20" fill="#ff69b4"/>
+                        
+                        <!-- Fosas nasales -->
+                        <circle cx="90" cy="110" r="5" fill="#ff1493"/>
+                        <circle cx="110" cy="110" r="5" fill="#ff1493"/>
+                        
+                        <!-- Mejillas -->
+                        <circle cx="50" cy="110" r="15" fill="#ff69b4" opacity="0.5"/>
+                        <circle cx="150" cy="110" r="15" fill="#ff69b4" opacity="0.5"/>
+                    </svg>
+                    <span class="text-2xl font-semibold text-pink-500">
+                        RanchTrack AI
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 py-4">
+                {% for category, message in messages %}
+                    <div class="mb-4 rounded-lg p-4 border-l-4 animate-fade-in
+                              {% if category == 'error' %}
+                                bg-red-50 border-red-500 text-red-700
+                              {% else %}
+                                bg-green-50 border-green-500 text-green-700
+                              {% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-sm mt-auto border-t border-pink-100">
+        <div class="max-w-7xl mx-auto py-4 px-4">
+            <p class="text-center text-sm text-gray-500">
+                © 2024 RanchTrack AI
+            </p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

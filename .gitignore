@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.env
+
+# Project specific
+app/uploads/
+app/processed/
+*.pt
+yolov8x.pt  # Específicamente este modelo
+progress.json
+*.log
+
+# Virtual Environment
+venv/
+*/venv/
+**/venv/
+C:/Users/USUARIO1/Documents/desesperacion-web/venv/
+
+# Model files
+**/yolov8x.pt
+C:/Users/USUARIO1/Documents/desesperacion-web/yolov8x.pt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Libraries
+*.dll
+*.lib
+*.pyd

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}RanchTrack AI{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-pink-600">Pig Video Detector</h1>
+        <p class="text-gray-600 mt-2">Transform your livestock management with AI-powered detection and tracking</p>
+    </div>
+
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8">
+        <div id="upload-area" 
+             class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-12 text-center cursor-pointer
+                    relative overflow-hidden group
+                    hover:border-pink-300 transition-all duration-300">
+            <!-- Efecto de gradiente en hover -->
+            <div class="absolute inset-0 bg-gradient-to-r from-pink-200/20 to-purple-200/20 
+                        opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                        blur-xl pointer-events-none"></div>
+            
+            <!-- Contenido principal -->
+            <div class="relative z-10">
+                <div class="mb-6">
+                    <svg class="mx-auto h-16 w-16 text-gray-400 group-hover:text-pink-400 transition-colors duration-300" 
+                         viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8l6 4-6 4V8z"/>
+                    </svg>
+                </div>
+                <p id="upload-text" class="text-gray-600 mb-4 group-hover:text-pink-600 transition-colors duration-300">
+                    Upload video (max 100MB)
+                </p>
+                <input type="file" id="file-input" accept="video/*" class="hidden">
+                <button id="upload-button" 
+                        class="bg-pink-500 text-white px-6 py-2 rounded-lg font-medium
+                               shadow-md hover:shadow-xl
+                               hover:bg-pink-600 transform hover:-translate-y-0.5
+                               transition-all duration-300">
+                    Select a file
+                </button>
+            </div>
+        </div>
+
+        <div id="progress-area" class="hidden mt-8">
+            <div class="flex justify-between items-center mb-2">
+                <span id="progress-percentage" 
+                      class="text-sm font-medium bg-pink-500 text-white px-3 py-1 rounded-full">
+                    0%
+                </span>
+                <span id="progress-status" class="text-sm text-pink-600 font-medium">
+                    Processing video...
+                </span>
+            </div>
+            <div class="h-2 bg-pink-100 rounded-full overflow-hidden">
+                <div id="progress-bar" 
+                     class="h-full bg-pink-500 transition-all duration-300"
+                     style="width: 0%">
+                </div>
+            </div>
+            <p id="progress-text" class="text-sm text-center text-gray-600 mt-2">
+                Processing video...
+            </p>
+        </div>
+
+        <div id="download-area" class="hidden mt-8 text-center">
+            <a id="download-link" 
+               class="inline-flex items-center space-x-2 bg-pink-500 text-white px-6 py-2 rounded-lg font-medium
+                      shadow-md hover:shadow-xl
+                      hover:bg-pink-600 transform hover:-translate-y-0.5
+                      transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span>Download Processed Video</span>
+            </a>
+        </div>
+
+        <div id="error-area" class="hidden mt-6">
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+                <p id="error-message" class="text-red-700 text-sm"></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
