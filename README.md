@@ -33,9 +33,7 @@ cd Pig-detec
 pip install -r requirements.txt
 ```
 
-3. Descargar modelo YOLOv8:
-- Descargar el modelo desde [Ultralytics Releases](https://github.com/ultralytics/assets/releases/)
-- Colocar el archivo como `yolov8x.pt` en el directorio raíz del proyecto
+Nota: El modelo YOLOv8 se descargará automáticamente la primera vez que ejecutes la aplicación.
 
 ## Configuración
 
