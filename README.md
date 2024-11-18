@@ -1,5 +1,107 @@
 # Pig Detection System
 
+Web system that uses artificial intelligence to detect and track pigs in videos.
+
+## Prerequisites
+
+- Python 3.10 or higher
+- pip (Python package manager)
+- Git
+
+## Virtual Environment Setup
+
+1. Create virtual environment:
+```powershell
+python -m venv venv
+```
+
+2. Activate virtual environment:
+```powershell
+venv\Scripts\activate
+```
+
+## Installation
+
+1. Clone repository:
+```bash
+git clone https://github.com/IngRetrius/Pig-detec.git
+cd Pig-detec
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Note: The YOLOv8 model will be downloaded automatically when you first run the application.
+
+## Configuration
+
+Create `.env` file in project root:
+```bash
+FLASK_APP=run.py
+FLASK_DEBUG=1
+SECRET_KEY=your-super-secret-key
+
+MODEL_CONFIDENCE=0.25
+TRACK_THRESH=0.25
+TRACK_BUFFER=30
+MATCH_THRESH=0.8
+FRAME_RATE=30
+
+MAX_CONTENT_LENGTH=104857600  # 100MB
+```
+
+## Running the Application
+
+1. Activate virtual environment:
+```bash
+venv\Scripts\activate
+```
+
+2. Start server:
+```bash
+flask run
+```
+
+3. Access application:
+- Open web browser
+- Go to `http://localhost:5000`
+
+## Usage
+
+1. Open web interface
+2. Select video file
+3. Wait for processing
+4. Download processed video with pig detection
+
+Supported formats:
+- MP4
+- AVI
+- MOV
+- WMV
+
+Maximum file size: 100MB
+
+## Main Dependencies
+
+- flask==3.0.2
+- ultralytics==8.1.28
+- supervision==0.19.0
+- opencv-python-headless>=4.9.0.80
+- torch>=2.1.0
+
+## Troubleshooting
+
+If there's an error activating virtual environment:
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+---
+
+# Sistema de Detección de Cerdos
+
 Sistema web que utiliza inteligencia artificial para detectar y rastrear cerdos en videos.
 
 ## Requisitos Previos
