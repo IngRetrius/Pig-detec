@@ -101,7 +101,7 @@ def process_video(source_path, target_path):
                 # Annotate frame
                 annotated_frame = frame.copy()
                 if len(detections) > 0:
-                    labels = [f"Animal #{int(id)}" for id in detections.tracker_id]
+                    labels = [f"Pig #{int(id)}" for id in detections.tracker_id]
                     annotated_frame = box_annotator.annotate(
                         scene=annotated_frame, 
                         detections=detections,
@@ -185,7 +185,7 @@ def draw_text_annotations(frame: np.ndarray, detections) -> np.ndarray:
             for idx in indices:
                 x1, y1 = int(detections.xyxy[idx][0]), int(detections.xyxy[idx][1])
                 label_position = (x1, y1 - 10)
-                label_text = f"Animal #{int(detections.tracker_id[idx])}"
+                label_text = f"Pig #{int(detections.tracker_id[idx])}"
                 
                 # Add black background for better visibility
                 (text_width, text_height), _ = cv2.getTextSize(
@@ -284,7 +284,7 @@ def process_video(source_path, target_path):
                 annotated_frame = frame.copy()
                 if len(detections) > 0:
                     labels = [
-                        f"Animal #{int(tracker_id)}"
+                        f"Pig #{int(tracker_id)}"
                         for tracker_id in detections.tracker_id
                     ]
                     
