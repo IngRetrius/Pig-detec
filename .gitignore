@@ -33,3 +33,6 @@ Thumbs.db
 *.dll
 *.lib
 *.pyd
+
+# Video files
+*.mp4

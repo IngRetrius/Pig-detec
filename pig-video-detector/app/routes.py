@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, jsonify, send_file
+from flask import Blueprint, render_template, request, jsonify, send_file, current_app
 from werkzeug.utils import secure_filename
 import os
 from app.utils import allowed_file, process_video, get_progress, save_progress, cleanup_old_files
@@ -9,6 +9,25 @@ from threading import Thread
 # Initialize Blueprint
 main = Blueprint('main', __name__)
 logger = logging.getLogger(__name__)
+
+@main.route('/metrics')
+def metrics():
+    return render_template('metrics.html')
+
+@main.route('/get_metrics_data')
+def get_metrics_data():
+    csv_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'assets',
+        'comprehensive_metrics_20241118_201931.csv'
+    )
+    print(f"Intentando acceder al CSV en: {csv_path}")
+    
+    if os.path.exists(csv_path):
+        return send_file(csv_path, mimetype='text/csv')
+    else:
+        print(f"El archivo no existe en la ruta: {csv_path}")
+        return jsonify({'error': 'Archivo no encontrado'}), 404
 
 @main.route('/')
 @main.route('/index')
