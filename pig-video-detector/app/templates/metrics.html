@@ -5,32 +5,32 @@
 {% block content %}
 <div class="max-w-7xl mx-auto">
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-pink-600">Métricas de Rendimiento</h1>
-        <p class="text-gray-600 mt-2">Comparación de modelos YOLOv8s y YOLOv8xl</p>
+        <h1 class="text-4xl font-bold text-pink-600">Performance Metrics</h1>
+        <p class="text-gray-600 mt-2">YOLOv8s and YOLOv8x model comparison</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- FPS Chart -->
         <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold text-pink-600 mb-4">FPS Efectivos</h2>
+            <h2 class="text-xl font-semibold text-pink-600 mb-4">Effective FPS</h2>
             <canvas id="fpsChart" class="w-full h-64"></canvas>
         </div>
 
         <!-- Confidence Chart -->
         <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold text-pink-600 mb-4">Confianza Promedio</h2>
+            <h2 class="text-xl font-semibold text-pink-600 mb-4">Average Confidence</h2>
             <canvas id="confidenceChart" class="w-full h-64"></canvas>
         </div>
 
         <!-- Detections Chart -->
         <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold text-pink-600 mb-4">Detecciones por Frame</h2>
+            <h2 class="text-xl font-semibold text-pink-600 mb-4">Frame detection</h2>
             <canvas id="detectionsChart" class="w-full h-64"></canvas>
         </div>
 
         <!-- Processing Time Chart -->
         <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold text-pink-600 mb-4">Tiempo de Procesamiento</h2>
+            <h2 class="text-xl font-semibold text-pink-600 mb-4">Processing Time</h2>
             <canvas id="timeChart" class="w-full h-64"></canvas>
         </div>
     </div>
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     backgroundColor: '#ec4899'
                                 },
                                 {
-                                    label: 'YOLOv8xl',
+                                    label: 'YOLOv8x',
                                     data: yolov8xl.map(row => parseFloat(String(row['FPS Efectivos']).replace(',', '.'))),
                                     backgroundColor: '#14b8a6'
                                 }
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     tension: 0.1
                                 },
                                 {
-                                    label: 'YOLOv8xl',
+                                    label: 'YOLOv8x',
                                     data: yolov8xl.map(row => parseFloat(String(row['Confianza Promedio']).replace(',', '.'))),
                                     borderColor: '#14b8a6',
                                     tension: 0.1
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     backgroundColor: '#ec4899'
                                 },
                                 {
-                                    label: 'YOLOv8xl',
+                                    label: 'YOLOv8x',
                                     data: yolov8xl.map(row => parseFloat(String(row['Cerdos por Frame']).replace(',', '.'))),
                                     backgroundColor: '#14b8a6'
                                 }
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     backgroundColor: '#ec4899'
                                 },
                                 {
-                                    label: 'YOLOv8xl',
+                                    label: 'YOLOv8x',
                                     data: yolov8xl.map(row => parseFloat(String(row['Tiempo Promedio (s)']).replace(',', '.'))),
                                     backgroundColor: '#14b8a6'
                                 }
